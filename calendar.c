@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int mm,date[117][12][42],days,yy,prechoice,M,Y;
+int mm,date[201][12][42],days,yy,prechoice,M,Y;
 
 void calendar(){
 	int i,space=1;
 
-	for(yy=1900; yy<2017; yy++){
+	for(yy=1900; yy<=2100; yy++){
 		for(mm=1; mm<=12; mm++){
 			if(mm==4 ||  mm==6 || mm==9 || mm==11) days=30;
 			else if(mm==2){
-				if(yy%4 == 0 && yy>1900) days=29;
+				if(yy%4 == 0 && yy!=1900 && yy!=2100) days=29;
 				else days=28;
 			}
 			else if(mm==1 || mm==3 || mm==5 || mm==7 || mm==8 || mm==10 || mm==12) days=31;
@@ -25,11 +25,12 @@ void calendar(){
 }
 
 void month(int MM, int YY){
+
 	calendar();
 	int i;
 	
-	if(MM>=1 && MM<=12 && YY>=1900 && YY<=2016){
-		printf("          %d          \n");	
+	if(MM>=1 && MM<=12 && YY>=1900 && YY<=2100){
+		printf("        %d        \n",YY);	
 		switch (MM) {
 			case  1:
 				printf("       JANUARY      \n");
@@ -80,12 +81,14 @@ void month(int MM, int YY){
 		}
 		printf("\n");
 	}
-	else printf("Not available.\nAvailable from JANUARY 1900 to DECEMBER 2016 only.\n");	
+	else printf("Not available.\nAvailable from JANUARY 1900 to DECEMBER 2100 only.\n");	
 }
 
 void year(int YY){
 
 	calendar();
+	int i;
+
 	
 	
 }
